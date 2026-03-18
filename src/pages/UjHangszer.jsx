@@ -35,7 +35,7 @@ function UjHangszer() {
         <Navigation/>
         <h1>Új hangszer hozzáadása</h1>
             <form method="post" onSubmit={(event) => submitEvent(event)}>
-                <input type="text" className="form-control" name="id" placeholder="Id" /><br/>
+                <input type="text" className="form-control" required name="id" placeholder="Id" /><br/>
                 <input type="text" className="form-control" required name="name" placeholder="Name" /><br/>
                 <input type="text" className="form-control" required name="brand"placeholder="Brand" /><br/>
                 <input type="text" className="form-control" required name="price" placeholder="Price" /><br/>

@@ -1,4 +1,5 @@
 import axios from "axios"
+import Navigation from "../modules/Nav"
 
 const submitEvent = (event) => {
     event.preventDefault()
@@ -29,6 +30,7 @@ const submitEvent = (event) => {
 function UjHangszer() {
     return(
         <>
+        <Navigation/>
         <h1>Új hangszer hozzáadása</h1>
             <form method="post" onSubmit={(event) => submitEvent(event)}>
                 <input type="text" className="form-control" name="id" placeholder="Id" /><br/>

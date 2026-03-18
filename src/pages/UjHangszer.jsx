@@ -5,7 +5,8 @@ const submitEvent = (event) => {
     event.preventDefault()
     event.persist()
 
-    const id = event.target.name.value
+    const id = event.target.id.value
+    const name = event.target.name.value
     const brand = event.target.brand.value
     const price = event.target.price.value
     const quantity = event.target.quantity.value
@@ -13,6 +14,7 @@ const submitEvent = (event) => {
 
     const jsonBody = {
         id : id,
+        name: name,
         brand: brand,
         price: parseInt(price),
         quantity: parseInt(quantity),

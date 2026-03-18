@@ -28,7 +28,7 @@ function EgyHangszer() {
                     <img src={hang.imageURL}></img>
                 </div>
                 <div className="card-footer">
-                    <Link to="/" target=""><button><i className="bi bi-back"></i>Vissza</button></Link>
+                    <Link to="/" target=""><button><i className="bi arrow-left"></i>Vissza</button></Link>
                 </div>
             </div>
         </>

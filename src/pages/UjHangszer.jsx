@@ -21,10 +21,8 @@ const submitEvent = (event) => {
     console.log(jsonBody)
 
     axios.post("http://localhost:3001/instruments", jsonBody)
-    .then((tartalom) => {alert("Új hangszer létrehozva"); console.log(tartalom.data)})
-    .catch((errors) => console.error("Hiba: "+errors))
-
-    location.assign("/")
+    .then((tartalom) => {alert(tartalom.data);location.assign("/")})
+    .catch((errors) => console.error("Hiba: "+errors.data.message))
 
 }
 
@@ -33,24 +31,13 @@ function UjHangszer() {
         <>
         <h1>Új hangszer hozzáadása</h1>
             <form method="post" onSubmit={(event) => submitEvent(event)}>
-                <label htmlFor="id">Id</label>
-                <input type="text" name="id" /><br/>
-                <label htmlFor="id">Name</label>
-
-                <input type="text" name="name" /><br/>
-                <label htmlFor="id">Brand</label>
-
-                <input type="text" name="brand" /><br/>
-                <label htmlFor="id">Price</label>
-
-                <input type="text" name="price" /><br/>
-                <label htmlFor="id">Quantity</label>
-
-                <input type="text" name="quantity" /><br/>
-                <label htmlFor="id">ImageURL</label>
-
-                <input type="text" name="imageURL" /><br/>
-                <input type="submit" value="Hozzáad" />
+                <input type="text" className="form-control" name="id" placeholder="Id" /><br/>
+                <input type="text" className="form-control" required name="name" placeholder="Name" /><br/>
+                <input type="text" className="form-control" required name="brand"placeholder="Brand" /><br/>
+                <input type="text" className="form-control" required name="price" placeholder="Price" /><br/>
+                <input type="text" className="form-control" required name="quantity" placeholder="Quantity" /><br/>
+                <input type="text" className="form-control" name="imageURL" placeholder="ImageURL" /><br/>
+                <input className="btn btn-primary" type="submit" value="Hozzáad" />
             </form>
         </>
     )

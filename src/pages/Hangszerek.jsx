@@ -6,12 +6,10 @@ import { Link } from "react-router-dom";
 const torles = async (id) => {
     try {
         const tart = await axios.delete(`http://localhost:3001/instruments/${id}`)
-        console.log(tart.data?.message)
-        console.log(tart.data)
-        alert("Sikeres törlés")
+        alert("Sikeres törlés"+ tart.data)
         location.assign("/")
     } catch (error) {
-        console.error("Hiba: "+error)
+        console.error("Hiba: "+error.data.message)
     }
 
 }
@@ -24,7 +22,6 @@ function Hangszerek() {
         try {
             setPending(true)
             const tartalom = await axios.get("http://localhost:3001/instruments")
-            console.log(tartalom)
             setAdat(tartalom.data)
 
         } catch (error) {

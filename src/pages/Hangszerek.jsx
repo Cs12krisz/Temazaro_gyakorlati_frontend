@@ -42,23 +42,28 @@ function Hangszerek() {
         <>
             <Navigation />
             <h1>Hangszerek</h1>
-            {adat.map((elem, index) => (
-                <div key={index} className="row g-4">
-                    <div className="card" >
-                        <div className="card-header">{elem.brand}</div>
-                        <div className="card-body">
-                            <h4>{elem.name}</h4>
-                            <p>{elem.price} HUF</p>
-                            <p>Készletben {elem.quantity} db</p>
-                            <Link to={`/hangszer/${elem.id}`}><img className="card-image-bottom" src={elem.imageURL} alt="" /></Link>
+            <div className="container">
+                <div className="row g-4">
+                    {adat.map((elem, index) => (
+                        <div className="col-12 col-sm-6 col-md-4 col-lg-3" key={index}>
+                            <div className="card h-100 shadow-sm" >
+                                <div className="card-header">{elem.brand}</div>
+                                <div className="card-body">
+                                    <h6 className="card-title">{elem.name}</h6>
+                                    <p>{elem.price} HUF</p>
+                                    <p>Készletben {elem.quantity} db</p>
+                                    <Link to={`/hangszer/${elem.id}`}><img className="card-image-top p-3" src={elem.imageURL} alt="hangszer" style={{ objectFit: "contain", height: "180px" }} /></Link>
+                                </div>
+                                <div className="card-footer">
+                                    <button className="bg-danger" onClick={() => { torles(elem.id) }}><i className="bi bi-trash"></i>Törlés</button>
+                                    <button className="bg-warning"><i className="bi bi-pencil"></i>Módosítás</button>
+                                </div>
+                            </div>
                         </div>
-                        <div className="card-footer">
-                            <button className="bg-danger" onClick={() => { torles(elem.id) }}><i className="bi bi-trash"></i>Törlés</button>
-                            <button className="bg-warning"><i className="bi bi-pencil"></i>Módosítás</button>
-                        </div>
-                    </div>
+
+                    ))}
                 </div>
-            ))}
+            </div>
         </>
 
     )

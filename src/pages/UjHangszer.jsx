@@ -1,7 +1,13 @@
 import axios from "axios"
 import Navigation from "../modules/Nav"
+import { useNavigate } from "react-router-dom"
 
-const submitEvent = (event) => {
+
+
+function UjHangszer() {
+    const navigate = useNavigate();
+
+    const submitEvent = (event) => {
     event.preventDefault()
     event.persist()
 
@@ -24,17 +30,15 @@ const submitEvent = (event) => {
     console.log(jsonBody)
 
     axios.post("http://localhost:3001/instruments", jsonBody)
-    .then((tartalom) => {alert(tartalom.data);location.assign("/")})
+    .then((tartalom) => {alert(tartalom.data); navigate("/")})
     .catch((errors) => console.error("Hiba: "+errors.data.message))
 
 }
-
-function UjHangszer() {
     return(
         <>
         <Navigation/>
         <h1>Új hangszer hozzáadása</h1>
-            <form method="post" onSubmit={(event) => submitEvent(event)}>
+            <form method="post" onSubmit={submitEvent}>
                 <input type="text" className="form-control" required name="id" placeholder="Id" /><br/>
                 <input type="text" className="form-control" required name="name" placeholder="Name" /><br/>
                 <input type="text" className="form-control" required name="brand"placeholder="Brand" /><br/>

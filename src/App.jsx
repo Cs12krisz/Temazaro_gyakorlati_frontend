@@ -1,7 +1,6 @@
 
 import { Route, Routes } from 'react-router-dom'
 import Hangszerek from './pages/Hangszerek'
-import './App.css'
 import UjHangszer from './pages/UjHangszer'
 import EgyHangszer from './pages/EgyHangszer'
 
